@@ -1,0 +1,30 @@
+    {% extends 'tem/index.html'%}
+    
+    {% block container%}
+    <div class="center-column">
+      <form method="POST" actions="">
+        {% csrf_token%} {{form.todo}}
+
+        <input
+          class="btn btn-info"
+          type="submit"
+          name="Create Task"
+          value="Add task"
+        />
+      </form>
+
+      {% for i in task%}
+      <div class="item-row">
+        <a class="btn btn-sm btn-info" href='{% url "update" i.id%}'>Update</a>
+        <a class="btn btn-sm btn-danger" href='{% url "delete" i.id%}'
+          >Delete</a
+        >
+        {% if i.complete == True%}
+        <strike>{{i}}</strike>
+        {% else%}
+        <span>{{i}}</span>
+        {% endif%}
+      </div>
+      {% endfor%}
+    </div>
+    {% endblock%}

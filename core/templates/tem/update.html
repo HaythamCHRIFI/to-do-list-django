@@ -1,0 +1,12 @@
+    {% extends 'tem/index.html'%}
+    
+    {% block container%}
+<h3>Update</h3>
+
+
+    <form method="POST" actions="">
+      {% csrf_token%} {{form}}
+
+      <button type="submit" class="btn">Update</button>
+    </form>
+    {% endblock%}

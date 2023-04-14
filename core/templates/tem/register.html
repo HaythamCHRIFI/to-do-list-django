@@ -1,0 +1,10 @@
+{% extends 'tem/index.html'%} {% load django_bootstrap5 %} {% block container%}
+<div class="container mt-5">
+  <form method="POST" action="">
+    {% csrf_token %} {% bootstrap_form myform%}
+    <div class="d-grid gap-2 mb-3">
+    <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+  </form>
+</div>
+{% endblock%}
